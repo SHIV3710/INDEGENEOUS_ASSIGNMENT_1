@@ -8,6 +8,7 @@ const currentsearch = createSlice({
     result: "",
     error: "",
     bookmarks: [],
+    Paper: "",
   },
   reducers: {
     resultloading: (state, action) => {
@@ -35,6 +36,9 @@ const currentsearch = createSlice({
       );
       state.bookmarks = newbookmarks;
     },
+    resultpaper: (state, action) => {
+      state.Paper = action.payload;
+    },
   },
 });
 
@@ -45,6 +49,7 @@ export const {
   resultbookmarks,
   resultremovebookmarks,
   resulttype,
+  resultpaper,
 } = currentsearch.actions;
 export const store = configureStore({
   reducer: {

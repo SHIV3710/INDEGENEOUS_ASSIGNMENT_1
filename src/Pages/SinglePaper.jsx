@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import { BiBookmark } from "react-icons/bi";
 import { IoBookmark } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { resultbookmarks, resultremovebookmarks } from "../Redux/Store";
+import {
+  resultbookmarks,
+  resultpaper,
+  resultremovebookmarks,
+} from "../Redux/Store";
+import { useNavigate } from "react-router-dom";
 
 const SinglePaper = ({ item }) => {
   const [bookmark, setbookmark] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { type } = useSelector((state) => state.CurrentSearch);
   let trimmedurl = new URL(item.url);
@@ -58,8 +64,11 @@ const SinglePaper = ({ item }) => {
               </button>
             </>
           )}
-          <button style={{ background: "green", color: "white" }}>
-            {!type ? "Get Content" : "Explore"}
+          <button
+            style={{ background: "green", color: "white" }}
+            onClick={() => dispatch(resultpaper(item))}
+          >
+            {!type ? "Get Content" : "Explore   "}
           </button>
         </div>
       </div>

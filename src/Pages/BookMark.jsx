@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 import SinglePaper from "./SinglePaper";
 const BookMark = () => {
   const [scrolled, setscrolled] = useState(false);
-  const { bookmarks } = useSelector((state) => state.CurrentSearch);
+  const { bookmarks, Paper } = useSelector((state) => state.CurrentSearch);
   return (
     <div
       className="bookmark"
       style={{
         top: scrolled ? "30%" : "85%",
-        left: "35.5%",
+        left: Paper ? "18%" : "35.5%",
         height: !scrolled ? "5vh" : "60vh",
         alignItems: scrolled ? "flex-start" : "center",
       }}
