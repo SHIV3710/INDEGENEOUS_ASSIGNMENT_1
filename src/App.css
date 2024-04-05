@@ -1,38 +1,253 @@
-.App {
-  text-align: center;
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.searchbar {
+  height: 80vh;
+  width: 30vw;
+  border-radius: 0.2rem;
+  position: relative;
+  user-select: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1vh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.top-options {
+  height: 6vh;
+  width: 30vw;
+  display: flex;
+  border: 1px solid rgb(206, 203, 203);
+  border-radius: 0.2rem 0.2rem 0 0;
+}
+.top-options-card {
+  height: 6vh;
+  width: fit-content;
+  padding: 0vw 1vw;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-color: rgb(206, 203, 203);
+  gap: 1vw;
+  font-family: Poppins, sans-serif;
+  font-size: small;
+
+  @media screen and (max-width: 500px) {
+    min-width: 15vw;
+    font-size: small;
+  }
+}
+.Quillbot-search {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  align-items: center;
+}
+.quillbot-logo {
+  font-size: large;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  color: rgb(201, 198, 198);
+}
+.quillbot-search-bar {
+  height: 5vh;
+  width: 27vw;
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  border: 2px solid rgb(147, 144, 144);
+  border-radius: 2rem;
+  font-family: Poppins, sans-serif;
+  padding: 0.4vw;
+  font-size: small;
+  svg {
+    font-size: large;
+  }
+
+  input {
+    height: 3vh;
+    width: 15vw;
+    border: none;
+    font-size: small;
+    text-indent: 1px;
+    font-family: Poppins, sans-serif;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.search {
+  height: 5vh;
+  width: 10vw;
+  font-weight: 500;
+  font-family: Poppins, sans-serif;
+  background-color: rgb(94, 151, 8);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
   color: white;
+  &:hover {
+    background-color: green;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+.bookmark {
+  width: 29vw;
+  position: fixed;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border: 1px solid gray;
+  background-color: rgb(255, 250, 250);
+  z-index: 100;
+  display: flex;
+  font-size: x-small;
+  flex-direction: column;
+  overflow: scroll;
+  gap: 1vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.bookmark-head {
+  height: 8vh;
+  width: 27vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1vw;
+  align-items: center;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+
+  span {
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
+.result-show {
+  width: 30vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  align-items: center;
+  overflow: scroll;
+  padding-bottom: 6vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.single-paper {
+  height: 30vh;
+  width: 28vw;
+  border-radius: 0.4rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-family: Poppins, sans-serif;
+  padding: 1vh;
+  display: flex;
+  gap: 1vh;
+  flex-direction: column;
+}
+.single-paper-url {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.url {
+  font-size: x-small;
+  color: grey;
+}
+.mark-as-bookmark {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: green;
+  font-size: x-small;
+}
+.Heading {
+  height: 3vh;
+  font-weight: bold;
+  font-size: small;
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.abstract {
+  height: 9vh;
+  font-size: xx-small;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    width: 1vh;
+  }
+}
+.total-cites {
+  width: fit-content;
+}
+.numbers {
+  width: 14vw;
+  display: flex;
+  gap: 1vw;
+  color: rgb(60, 60, 239);
+}
+.options-single-paper {
+  width: 28vw;
+  display: flex;
+  align-items: center;
+  font-size: xx-small;
+  gap: 1vw;
+}
+.buttons-single-paper {
+  width: 14vw;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1vw;
+
+  button {
+    font-family: Poppins, sans-serif;
+    border-radius: 1rem;
+    font-size: xx-small;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.back-button {
+  width: 28vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Poppins, sans-serif;
+  font-size: x-small;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #06b256;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
